@@ -1,15 +1,13 @@
 {
   "manifest_version": 2,
   "name": "Feed Collector",
-  "version": "1.0",
-  "description": "Collect all feeds on the current page.",
+  "version": "0.1.0",
+  "description": "Tiny popup to collect all feeds on the current page.",
+  "homepage_url": "https://github.com/nobkd/feed-collector",
   "icons": {
     "48": "icons/48-icon.png",
     "96": "icons/96-icon.png"
   },
-  "permissions": [
-    "<all_urls>"
-  ],
   "browser_action": {
     "default_icon": {
       "48": "icons/48-icon.png",

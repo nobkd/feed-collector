@@ -1,0 +1,29 @@
+name: Publish
+
+on:
+  release:
+    types: [published]
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Publish to Firefox AMO
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bundle extension
+        run: ./build.sh
+
+      - name: Release
+        uses: browser-actions/release-firefox-addon@latest
+        with:
+          addon-path: .dist/feed_collector.zip
+          release-note: ${{ github.event.release.body }}
+          license: MIT
+          auth-api-issuer: ${{ secrets.AUTH_API_ISSUER }}
+          auth-api-secret: ${{ secrets.AUTH_API_SECRET }}
