@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-mkdir -p .dist && zip -rj .dist/feed_collector.zip src/
+mkdir -p .dist && cd src && zip -r ../.dist/feed_collector.zip . && cd ..
