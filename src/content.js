@@ -1,10 +1,10 @@
-
+if (globalThis.browser == null) globalThis.browser = globalThis.chrome
 
 browser.runtime.onMessage.addListener((msg, sender, response) => {
-  if (msg.from == "popup" && msg.subject == "feeds") {
-    const links = [...document.querySelectorAll("link[rel=alternate]")]
+  if (msg.from == 'popup' && msg.subject == 'feeds') {
+    const links = [...document.querySelectorAll('link[rel=alternate]')]
       .map(el => el.href)
-      .filter(l => l.includes("rss") || l.includes("atom") || l.includes("feed") || l.endsWith("xml"))
+      .filter(l => l.includes('rss') || l.includes('atom') || l.includes('feed') || l.endsWith('xml'))
 
     // console.debug(links)
     response(links)

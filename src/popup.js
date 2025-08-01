@@ -1,14 +1,15 @@
+if (globalThis.browser == null) globalThis.browser = globalThis.chrome
 
 function buildEntry(url) {
-  let row = document.createElement("tr")
-  let linkCell = document.createElement("td")
-  let btnCell = document.createElement("td")
+  let row = document.createElement('tr')
+  let linkCell = document.createElement('td')
+  let btnCell = document.createElement('td')
 
   row.appendChild(linkCell)
   row.appendChild(btnCell)
 
-  let link = document.createElement("a")
-  let btn = document.createElement("button")
+  let link = document.createElement('a')
+  let btn = document.createElement('button')
 
   linkCell.appendChild(link)
   btnCell.appendChild(btn)
@@ -16,7 +17,7 @@ function buildEntry(url) {
   link.href = url
   link.innerText = url
 
-  btn.innerText = "Copy"
+  btn.innerText = 'Copy'
   btn.onclick = () => navigator.clipboard.writeText(url)
 
   return row
@@ -26,10 +27,10 @@ function showData(links) {
   const el = document.getElementById('links')
 
   if (links == undefined || links.length == 0) {
-    const row = document.createElement("tr")
-    const cell = document.createElement("td")
+    const row = document.createElement('tr')
+    const cell = document.createElement('td')
 
-    cell.innerText = "Nothing found."
+    cell.innerText = 'Nothing found.'
 
     row.appendChild(cell)
     el.appendChild(row)
